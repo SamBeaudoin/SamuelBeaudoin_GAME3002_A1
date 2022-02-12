@@ -11,9 +11,6 @@ public class DrawTrajectory : MonoBehaviour
     [Range(5, 30)]
     private int m_LineSegmentCount = 20;
 
-    [SerializeField]
-    public bool m_DrawLine = true;
-
     private List<Vector3> m_linePoints = new List<Vector3>();
 
     // Is a Singleton as we only ever need one line
@@ -35,7 +32,7 @@ public class DrawTrajectory : MonoBehaviour
         // Clear Previous Line
         m_linePoints.Clear();
 
-        for(int i = 0; i < m_LineSegmentCount; i++)
+        for (int i = 0; i < m_LineSegmentCount; i++)
         {
             float StepTimePassed = TimeStep * i;
 
@@ -53,6 +50,6 @@ public class DrawTrajectory : MonoBehaviour
 
         m_LineRenderer.positionCount = m_linePoints.Count;
         m_LineRenderer.SetPositions(m_linePoints.ToArray());
+        
     }
-    
 }
